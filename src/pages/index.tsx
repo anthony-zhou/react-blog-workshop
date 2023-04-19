@@ -7,18 +7,21 @@ export default function Homepage() {
       <Head>
         <title>Next Template</title>
       </Head>
-      <div className="">
-        <h1 className="text-4xl font-bold mb-2">Anthony&apos;s Blog</h1>
-        {articles.map(({
-          id, title, description, date,
-        }) => (
-          <div key={id} className="mb-4">
-            <h2 className="text-2xl font-bold">{title}</h2>
-            <p className="text-gray-500">{date}</p>
-            <p>{description}</p>
-          </div>
-        ))}
+      <div className="text-center mb-10">
+        <h1 className="text-6xl font-bold">Anthony&apos;s Blog</h1>
       </div>
+      {articles.map(({
+        id, title, description, date,
+      }) => (
+        <div
+          key={id}
+          className="mb-8 p-6 border border-gray-300 rounded-md shadow-md"
+        >
+          <h2 className="text-2xl font-bold mb-2">{title}</h2>
+          <p className="text-gray-500 mb-4">{date}</p>
+          <p className="text-gray-800">{description}</p>
+        </div>
+      ))}
     </div>
   );
 }
