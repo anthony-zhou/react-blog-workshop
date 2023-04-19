@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import articles from '@/lib/articles';
 
 export default function Homepage() {
   return (
@@ -6,9 +7,17 @@ export default function Homepage() {
       <Head>
         <title>Next Template</title>
       </Head>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-2">Next.js Template</h1>
-        <p>Edit `pages/index.tsx` to see your changes!</p>
+      <div className="">
+        <h1 className="text-4xl font-bold mb-2">Anthony&apos;s Blog</h1>
+        {articles.map(({
+          id, title, description, date,
+        }) => (
+          <div key={id} className="mb-4">
+            <h2 className="text-2xl font-bold">{title}</h2>
+            <p className="text-gray-500">{date}</p>
+            <p>{description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
