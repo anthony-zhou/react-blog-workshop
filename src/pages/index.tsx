@@ -1,7 +1,16 @@
 import Head from 'next/head';
-import articles from '@/lib/articles';
+import posts from '@/lib/posts';
 
-export default function Homepage() {
+type HomepageProps = {
+  articles: {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+  }[];
+};
+
+export default function Homepage({ articles }: HomepageProps) {
   return (
     <div className="px-2 md:px-36 py-20">
       <Head>
@@ -24,4 +33,12 @@ export default function Homepage() {
       ))}
     </div>
   );
+}
+
+export function getStaticProps() {
+  const articles = posts.getSortedPosts();
+
+  return {
+    props: { articles },
+  };
 }
