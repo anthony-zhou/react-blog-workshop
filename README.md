@@ -1,4 +1,4 @@
-## ts-next-starter
+## next-starter
 
 Next.js starter code with TypeScript, Tailwind, and ESLint.
 
