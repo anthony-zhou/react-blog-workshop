@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import posts from '@/lib/posts';
 
 type HomepageProps = {
@@ -22,14 +23,16 @@ export default function Homepage({ articles }: HomepageProps) {
       {articles.map(({
         id, title, description, date,
       }) => (
-        <div
+        <Link
           key={id}
-          className="mb-8 p-6 border border-gray-300 rounded-md shadow-md"
+          href={`/posts/${id}`}
         >
-          <h2 className="text-2xl font-bold mb-2">{title}</h2>
-          <p className="text-gray-500 mb-4">{date}</p>
-          <p className="text-gray-800">{description}</p>
-        </div>
+          <div className="mb-8 p-6 border border-gray-300 rounded-md shadow-md hover:shadow-lg transition">
+            <h2 className="text-2xl font-bold mb-2">{title}</h2>
+            <p className="text-gray-500 mb-4">{date}</p>
+            <p className="text-gray-800">{description}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );
